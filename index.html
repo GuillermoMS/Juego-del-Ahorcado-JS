@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ahorcado</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        var letras="";
+        var letrasDElegida=[];
+        var guiones=[];
+        var errores=0;
+        var palabras=["ahorcado", "entornos", "arbol", "pijama", "seguridad", "teclado", "paco"];
+        var elegida="";
+        var acierto =false;
+        var resultado="";
+        var textResl ="";
+        var elegida="";
+        var intentos=7;
+        var palabra_resolver="";
+        var aciertoTF=false;
+        var letrasUsadas="";
+        
+        function img(){
+            if(intentos==5){
+                var pImg='<img src="img/ah-2.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }else if(intentos==4){
+                var pImg='<img src="img/ah-3.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }else if(intentos==3){
+                var pImg='<img src="img/ah-4.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }else if(intentos==2){
+                var pImg='<img src="img/ah-5.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }else if(intentos==1){
+                var pImg='<img src="img/ah-6.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }else if(intentos==0){
+                var pImg='<img src="img/ah-7.png">';
+                document.getElementById('cont-img').innerHTML=pImg;
+            }
+        }
+        
+        function lose(){
+            if(intentos==0){
+                var pLose="<br>Has perdido";
+                document.getElementById('jugar').disabled=true;
+                document.getElementById('resolver').disabled=true;
+                document.getElementById('intentos').innerHTML=pLose;
+            }
+        }
+        
+        function win(){
+                document.getElementById('jugar').disabled=true;
+                document.getElementById('resolver').disabled=true;
+        }
+        
+        function error(){
+            if(!aciertoTF){
+                intentos--;
+                lose();
+                img();
+                var pIntentos="<br>Te quedan: ("+intentos+")";
+                document.getElementById('intentos').innerHTML=pIntentos;               
+            }
+        }
+        
+        function aleatorio() {
+            var aux = Math.round(Math.random()*(6-0)+parseInt(0));
+            elegida = palabras[aux]; 
+        }
+        aleatorio();
+        
+        function impirmir(){
+            var pGuiones="";
+                 for(var j=0;j<guiones.length;j++){
+                    pGuiones+=guiones[j];
+                    document.getElementById('guiones').innerHTML=pGuiones;
+                }           
+        }
+        
+        function crearGuiones(){
+            for(var i=0;i<elegida.length;i++){
+                guiones[i]=" -";
+            }
+        }
+        
+        function resolver(){
+            palabra_resolver = document.getElementById("palabra").value;
+            palabra_resolver=palabra_resolver.toLocaleLowerCase();
+            if(elegida==palabra_resolver){
+                var correcta ='<br>Es la palabra correcta';
+                document.getElementById('correcta').innerHTML=correcta;
+                win();
+            }else{
+                var noCorrecta ='<br>No es la palabra correcta';
+                document.getElementById('correcta').innerHTML=noCorrecta;
+                error();
+                lose();
+            }
+        }
+        
+        function aciertos(){
+            if(acierto>0){
+                var pAciertos='<br>Hay: ( '+acierto+' ) "'+letras+'".';
+                document.getElementById('aciertos').innerHTML=pAciertos;
+                acierto=0;
+            } 
+        }
+        
+        function letrasU(){
+                letrasUsadas+= letras+' ';
+                document.getElementById('letrasUsadas').innerHTML=letrasUsadas;
+        }
+        
+        function jugar(){
+                letras = document.getElementById("letra").value;
+                letras=letras.toLocaleLowerCase();
+                for(var i=0;i<elegida.length;i++){
+                    if(elegida.charAt(i)==letras){
+                        guiones[i]=letras;
+                        acierto++;
+                        aciertoTF=true;
+                    }
+                }
+            error();
+            aciertoTF=false;
+            aciertos();
+            letrasU();
+            impirmir();
+            lose();
+        }
+        
+        jugar();
+        
+        function reload(){
+            window.location.reload();
+        }
+    </script>
+</head>
+<body>
+   <div id="cont">
+   <h1 id="ahorcado">Ahorcado</h1>
+   
+    <div id="cont-letra" > 
+        <input type="text" id="letra"  maxlength="1" placeholder="Introduce una letra"><input type="button" value="Jugar" onclick="jugar();" id="jugar">
+    </div> 
+    
+    <div id="cont-resolver"> 
+        <input type="text" id="palabra" placeholder="Introduce el resultado"><input type="button" value="Resolver" onclick="resolver();" id="resolver">
+    </div>  
+    
+    <div id="cont-letrasUsadas">
+        <h3>Palabras ya usadas</h3>
+        <p id="letrasUsadas"></p>
+    </div>
+    
+    <div id="cont-mensajes">
+        <p id="guiones"></p>
+        <p id="aciertos"></p>
+        <p id="intentos"></p>
+        <p id="correcta"></p>
+    </div>
+    
+    <div id="reload"><input type="button" value="Volver a Jugar" onclick="reload();"></div>
+    
+   </div>
+
+   <div id="cont-img"><img src="img/ah-1.png"></div> 
+    <script>
+        crearGuiones();
+        impirmir();
+        error();
+    </script>
+</body>
+</html>

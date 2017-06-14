@@ -1,0 +1,175 @@
+body{
+    padding: 0;
+    margin: 0 auto;
+    width: 70%;
+}
+
+#cont{
+    background-color: #aaaaaa;
+    float: left;
+}
+
+#cont-img{
+    float: left;
+    background-color: #aaaaaa;
+}
+
+img{
+    height: 618px;
+}
+
+
+#ahorcado{
+    width: 500px;
+    text-align: center;
+    color: brown;
+    font-weight: bold;
+    font-size: 5vw;
+    margin: 10px 0;
+}
+
+#cont-letra{
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: beige;
+    width: 300px;
+}
+
+#cont-resolver{
+    margin: 0 auto;
+    text-align: center;
+    padding: 10px 0px;
+    background-color: beige;
+    width: 300px;
+}
+
+#cont-letrasUsadas{
+    margin: 0 auto;
+    border-color: white;
+    color: black;
+    font-weight: bold;
+    width: 300px;
+    padding: 0px;
+    background-color: white;
+    height: 50px;
+    border-top: solid 1px;
+}
+
+#cont-letrasUsadas h3{
+    text-align: center;
+    border-bottom: solid 1px;
+    margin: 0px;
+}
+
+#cont-letrasUsadas p{
+    text-align: center;
+    padding: 0px;
+    padding-top: 2px;
+    margin: 0px;
+}
+
+#cont-mensajes{
+    margin-top: 20px;
+    padding-top: 20px;
+    text-align: center; 
+}
+
+#palabra{
+    width: 150px;
+    height: 30px;
+    border: solid 2px ;
+    text-align: center;
+}
+
+#letra{
+    height: 30px;
+    width: 150px;
+    border: solid 2px ; 
+    text-align: center;
+}
+
+#resolver{
+    margin-left: 10px;
+    width: 100px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+#jugar{
+    margin-left: 10px;
+    width: 100px;
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+#guiones{
+    background-color: white;
+    width: 400px;
+    height: 50px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border: solid 2px #324bd0;
+    font-weight: bold;
+    font-size: 2vw;
+    color: #324bd0;
+}
+
+#aciertos{
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: solid 2px #0f8325;
+    font-weight: bold;
+    font-size: 1vw;
+    color: #0f8325; 
+}
+
+#intentos{
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: solid 2px  #d82424;
+    font-weight: bold;
+    font-size: 1vw;
+    color: #d82424; 
+}
+
+#correcta{
+    background-color: white;
+    width: 250px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 10px;
+    border: solid 2px  #b7931b;
+    font-weight: bold;
+    font-size: 1vw;
+    color: #b7931b;    
+}
+
+#reload{
+    width: 400px;
+    height: 20px;
+    margin: 0 auto;
+    margin-top: 10px;
+    font-size: 1vw;
+    text-align: center;
+    padding-bottom: 15px;
+    
+}
+
+#reload input{
+    color: black;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
